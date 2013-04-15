@@ -7,6 +7,7 @@ This module provides two functions, `mac_to_ua` and `ua_to_mac` that will conver
 A suite of unit tests is also provided. The tests use known MAC / UA pairs to validate the functions and also test randomly-generated UAs and MACs.
 
 To compute the MAC address from the unit address (example 000-00004-47363-215):
+
 1. Drop the dashes from the string (0000000447363215)
 2. Drop the last three digits, which are the checksum (0000000447363)
 3. Interpret this string as a base-10 integer (example: 447363)
