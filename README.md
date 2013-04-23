@@ -1,4 +1,5 @@
 [SCTE 55-1](http://scte.org/documents/pdf/Standards/ANSI_SCTE-55-1-2009.pdf) terminals (e.g. Motorola cable boxes and CableCARDs) are assigned a unique 40-bit identifier. This identifier is represented in one of two forms:
+
 1. A string of 12 hexadecimal digits (with the MSB set to 0)
 2. A  string of 16 decimal digits with four dash-separated sections (3 digits, 5 digits, 5 digits, and 3 digits). The last section is computed from the previous sections and functions as a checksum.
 
