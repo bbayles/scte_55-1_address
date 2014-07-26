@@ -2,6 +2,7 @@
 # Unit tests module
 from .scte_55_1_address import mac_to_ua, ua_to_mac
 import os
+import pkgutil
 import random
 import unittest
 
@@ -49,15 +50,14 @@ class known_ua(unittest.TestCase):
 
 if __name__ == "__main__":
   test_count = 1000
+  
   # Load known values
   A_ua_mac = []
-  infile_dir = os.path.dirname(__file__)
-  infile_path = os.path.join(infile_dir, "mac_ua_tests.csv")
-  with open(infile_path) as infile:
-    headers = next(infile)
-    for line in infile:
-      line = line.strip()
-      ua, mac = line.split(',')
-      A_ua_mac.append((ua, mac))
+  data = pkgutil.get_data(__package__, "mac_ua_tests.csv")
+  data = data.decode("utf-8").splitlines()[1:]
+  for line in data:
+    line = line.strip()
+    ua, mac = line.split(',')
+    A_ua_mac.append((ua, mac))
   
   unittest.main()
