@@ -31,14 +31,17 @@ D = [0x00, 0x9b, 0xad, 0x36, 0xc1, 0x5a, 0x6c, 0xf7, 0x19, 0x82, 0xb4, 0x2f,
 def mac_to_ua(mac, D=D):
   """Convert MAC address to Unit address"""
   
+  # Accept MAC addresses of the form 00:00:00:00:00:00
+  mac = mac.replace(':', '')
+  
   # The first 8 bits must be 0 for a valid MAC address
   if mac[0: 2] != "00":
-    raise ValueError("Bad MAC address: 40 bits are allowed, but more given")
+    raise ValueError("Bad MAC address: First byte must be 0.")
   
-  # Strip the quotes and convert to an array of 1-byte integers
-  mac = mac.replace(':', '')
+  # Convert to an array of one-byte integers
   A = [int(mac[i: i + 2], 16) for i in range(0, 12, 2)]
   
+  # Compute the CRC suffix
   crc = 0xff
   for i in range(1, 6):
     crc = D[crc ^ A[i]]
