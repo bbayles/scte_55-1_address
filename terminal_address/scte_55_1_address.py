@@ -2,7 +2,7 @@
 # Provides functions that can convert between the Unit address and MAC address
 # identifiers for SCTE 55-1 terminals
 # See README for more information
-# See COPYING for license
+# See LICENSE for license
 
 # Pre-computed CRC table
 D = [0x00, 0x9b, 0xad, 0x36, 0xc1, 0x5a, 0x6c, 0xf7, 0x19, 0x82, 0xb4, 0x2f,
