@@ -7,7 +7,7 @@ import random
 import unittest
 
 
-class known_ua(unittest.TestCase):
+class ConverterTests(unittest.TestCase):
   def test_known_ua(self):
     """mac_to_ua should give known result with known input"""
     for ua, mac in A_ua_mac:
