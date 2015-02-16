@@ -30,4 +30,5 @@ setup(
     keywords='scte cable settop cablecard',
 
     packages=find_packages(),
+    test_suite='tests',
 )

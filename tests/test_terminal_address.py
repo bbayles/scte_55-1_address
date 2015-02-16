@@ -1,9 +1,20 @@
 # Unit Address / MAC Address converters for SCTE 55-1 terminals
 # Unit tests module
-from .scte_55_1_address import mac_to_ua, ua_to_mac
+from terminal_address.scte_55_1_address import mac_to_ua, ua_to_mac
 import pkgutil
 import random
 import unittest
+
+test_count = 1000
+
+# Load known values
+A_ua_mac = []
+data = pkgutil.get_data(__package__, "mac_ua_tests.csv")
+data = data.decode("utf-8").splitlines()[1:]
+for line in data:
+    line = line.strip()
+    ua, mac = line.split(',')
+    A_ua_mac.append((ua, mac))
 
 
 class ConverterTests(unittest.TestCase):
@@ -46,17 +57,3 @@ class ConverterTests(unittest.TestCase):
             s = format(n, "013")
             ua = "{}-{}-{}-{}".format(s[0: 3], s[3: 8], s[8: 13], "000")
             self.assertRaises(ValueError, ua_to_mac, ua)
-
-if __name__ == "__main__":
-    test_count = 1000
-
-    # Load known values
-    A_ua_mac = []
-    data = pkgutil.get_data(__package__, "mac_ua_tests.csv")
-    data = data.decode("utf-8").splitlines()[1:]
-    for line in data:
-        line = line.strip()
-        ua, mac = line.split(',')
-        A_ua_mac.append((ua, mac))
-
-    unittest.main()
