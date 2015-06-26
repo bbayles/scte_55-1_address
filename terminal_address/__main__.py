@@ -32,7 +32,10 @@ def main(converter, infile_path, outfile):
     with open(infile_path, 'rt') as infile:
         for line in infile:
             addr = line.strip()
-            converted = converter(addr)
+            try:
+                converted = converter(addr)
+            except ValueError:
+                converted = ''
             print(addr, converted, sep=',', file=outfile)
 
 
