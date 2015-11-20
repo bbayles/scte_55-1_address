@@ -1,3 +1,6 @@
+[![Build Status](https://travis-ci.org/bbayles/scte_55-1_address.svg?branch=master)](https://travis-ci.org/bbayles/scte_55-1_address)
+[![Coverage Status](https://coveralls.io/repos/bbayles/scte_55-1_address/badge.svg?branch=master&service=github)](https://coveralls.io/github/bbayles/scte_55-1_address?branch=master)
+
 # SCTE 55-1 Terminal Address Converters
 [SCTE 55-1](http://scte.org/documents/pdf/Standards/ANSI_SCTE-55-1-2009.pdf) terminals (e.g. Motorola / ARRIS cable boxes and CableCARDs) are assigned a unique 40-bit identifier. This identifier is represented in one of two forms:
 
