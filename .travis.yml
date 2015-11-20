@@ -12,7 +12,7 @@ install:
     - pip install --upgrade setuptools coveralls
 
 script:
-    - coverage run --branch --include="network_finder/*" setup.py test
+    - coverage run --branch --include="terminal_address/*" setup.py test
 
 after_success:
     - coveralls
